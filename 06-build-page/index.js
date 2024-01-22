@@ -1,5 +1,3 @@
-// Привет, ревьюер) Я доделаю задачу 23.01. Извини, если доставил неудобства
-
 const fs = require("fs").promises;
 const { join } = require("path");
 
