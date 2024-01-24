@@ -1,8 +1,8 @@
-const fs = require("fs").promises;
-const path = require("path");
-const { stdout } = require("process");
+const fs = require('fs').promises;
+const path = require('path');
+const { stdout } = require('process');
 
-const contentPath = path.join(__dirname, "secret-folder");
+const contentPath = path.join(__dirname, 'secret-folder');
 
 (async () => {
   const files = await fs.readdir(contentPath);
@@ -15,11 +15,11 @@ const contentPath = path.join(__dirname, "secret-folder");
     
     if (isFile) {
       if (!isFirstFile) {
-        stdout.write("\n");
+        stdout.write('\n');
       }
       stdout.write(name);
-      stdout.write("-" + ext.slice(1) + "-");
-      stdout.write(filesSize.size.toString() + "byte");
+      stdout.write('-' + ext.slice(1) + '-');
+      stdout.write(filesSize.size.toString() + 'byte');
       isFirstFile = false;
     }
   }

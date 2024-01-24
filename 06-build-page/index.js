@@ -1,29 +1,29 @@
-const fs = require("fs").promises;
-const { join } = require("path");
+const fs = require('fs').promises;
+const { join } = require('path');
 
-const filePathHtml = join(__dirname, "template.html");
-const filePathTags = join(__dirname, "components");
-const assetsPath = join(__dirname, "assets");
-const stylePath = join(__dirname, "styles");
-const newPath = join(__dirname, "project-dist");
-const newPathIndex = join(__dirname, "project-dist", "index.html");
-const newPathStyle = join(newPath, "style.css");
-const newPathAssets = join(newPath, "assets");
+const filePathHtml = join(__dirname, 'template.html');
+const filePathTags = join(__dirname, 'components');
+const assetsPath = join(__dirname, 'assets');
+const stylePath = join(__dirname, 'styles');
+const newPath = join(__dirname, 'project-dist');
+const newPathIndex = join(__dirname, 'project-dist', 'index.html');
+const newPathStyle = join(newPath, 'style.css');
+const newPathAssets = join(newPath, 'assets');
 
 (async () => {
-    const template = await fs.readFile(filePathHtml, "utf-8");
+    const template = await fs.readFile(filePathHtml, 'utf-8');
     const allTags = await fs.readdir(filePathTags);
     let index = template;
     for (const tag of allTags) {
-      const tagPath = join(__dirname, "components", tag);
-      const tagContent = await fs.readFile(tagPath, "utf-8");
-      index = index.replace(`{{${tag.replace(".html", "")}}}`, tagContent);
+      const tagPath = join(__dirname, 'components', tag);
+      const tagContent = await fs.readFile(tagPath, 'utf-8');
+      index = index.replace(`{{${tag.replace('.html', '')}}}`, tagContent);
     }
 
-    let style = "";
+    let style = '';
     const stylesFiles = await fs.readdir(stylePath);
     for (const file of stylesFiles) {
-      const fileReaded = await fs.readFile(join(stylePath, file), "utf-8");
+      const fileReaded = await fs.readFile(join(stylePath, file), 'utf-8');
       style += fileReaded;
     }
 
