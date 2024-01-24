@@ -18,8 +18,8 @@ const contentPath = path.join(__dirname, "secret-folder");
         stdout.write("\n");
       }
       stdout.write(name);
-      stdout.write("-" + ext.slice(1) + '-');
-      stdout.write(filesSize.size.toString() + 'byte');
+      stdout.write("-" + ext.slice(1) + "-");
+      stdout.write(filesSize.size.toString() + "byte");
       isFirstFile = false;
     }
   }

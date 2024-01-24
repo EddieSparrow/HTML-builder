@@ -20,7 +20,7 @@ const newPathAssets = join(newPath, "assets");
       index = index.replace(`{{${tag.replace(".html", "")}}}`, tagContent);
     }
 
-    let style = '';
+    let style = "";
     const stylesFiles = await fs.readdir(stylePath);
     for (const file of stylesFiles) {
       const fileReaded = await fs.readFile(join(stylePath, file), "utf-8");
